@@ -283,7 +283,7 @@ class EOP_Options extends EOP_Base {
 	 * @param mixed $data Data to set
 	 */
 	function set_data($key = null, $data = null) {
-		$opts = $this->get();
+		$opts = $this->get_data();
 		//Set data
 		if ( func_num_args() == 1 && is_array($key) ) {
 			$opts = $key;
