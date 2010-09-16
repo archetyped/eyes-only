@@ -40,8 +40,8 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 == Screenshots ==
 
 1. Redaction Buttons in Post Editors
-1. Automatic Redactions
-1. Redacted Post Content
+2. Automatic Redactions
+3. Redacted Post Content
 
 == Changelog ==
 = 1.0 =
