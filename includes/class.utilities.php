@@ -117,7 +117,7 @@ class EOP_Utilities {
 				}
 				//Only continue processing the first valid path segment
 				if ( $first )
-					!!$first;
+					$first = !$first;
 				else
 					continue;
 				//Add back leading slash if necessary
@@ -142,8 +142,7 @@ class EOP_Utilities {
 	 */
 	function get_file_url($file) {
 		if (is_string($file) && '' != trim($file)) {
-			$file = ltrim(trim($file), '/');
-			$file = sprintf('%s/%s', $this->get_url_base(), $file);
+			$file = $this->normalize_path($this->get_url_base(), $file);
 		}
 		return $file;
 	}
