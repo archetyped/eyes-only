@@ -1,6 +1,6 @@
 === Eyes Only ===
 Contributors: archetyped
-Tags: privacy, private, security, redact, redaction
+Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/
 Requires at least: 3.0
 Tested up to: 3.0.1
@@ -44,5 +44,7 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+= 1.0.1 =
+* Minor bug fix
 = 1.0 =
 * Initial release
