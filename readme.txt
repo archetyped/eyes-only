@@ -1,7 +1,7 @@
 === Eyes Only ===
 Contributors: archetyped
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
-Plugin Link: http://archetyped.com/
+Plugin Link: http://archetyped.com/tools/eyes-only/
 Requires at least: 3.0
 Tested up to: 3.0.1
 Stable tag: trunk

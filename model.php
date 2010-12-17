@@ -99,7 +99,7 @@ class EyesOnly extends EOP_Base {
 		/* Content */
 		
 		//Automatic redactions
-		add_filter('the_content', $this->m('autos_replace'));
+		add_filter('the_content', $this->m('autos_replace'), 20);
 		
 		//CSS
 		add_action('wp_head', $this->m('add_style'));
