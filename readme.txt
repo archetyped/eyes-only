@@ -44,7 +44,15 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+= 1.0.3 =
+* Update: Use WP Quicktags API
+* Fix: Post editor JS (Peter the Quick(tag))
+
+= 1.0.2 =
+* Fix: Permission levels for admin menus
+ 
 = 1.0.1 =
 * Minor bug fix
+
 = 1.0 =
 * Initial release
