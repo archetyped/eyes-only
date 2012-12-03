@@ -1,0 +1,38 @@
+/* Admin Styles */
+h3 .button {
+	font-weight: normal;
+}
+
+tr.blocked .prim {
+	background-image: url('../images/loading.gif');
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+}
+
+tr.blocked span {
+	visibility: hidden;
+}
+
+.inline-edit-row fieldset label span.title {
+	width: 100%;
+}
+
+.inline-edit-row fieldset label span.input-text-wrap {
+	margin: 0;
+}
+
+.inline-edit-row {
+	display: table-row;
+}
+
+.js .inline-edit-row {
+	display: none;
+}
+
+.row-actions .confirm {
+	display: none;
+}
+
+.hid {
+	display: none;
+}
