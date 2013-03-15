@@ -488,7 +488,7 @@ if ( typeof eop.admin == 'undefined' || typeof eop.admin != 'object' )
 			//Return editor element (if already created)
 			if ( !$(ed).length ) {
 				//Create new editor element
-				ed = $(a.add.get()).clone().css('display', 'table-row').hide();
+				ed = $(a.add.get()).clone().hide();
 				//Change attributes
 				$(ed).attr('id', eop.util.makeAttribute(a.elements.edit_form)).find(a.elements.form_title).html('Edit');
 				$(ed).find(a.elements.save).val('Save');

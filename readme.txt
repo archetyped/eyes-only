@@ -1,9 +1,10 @@
 === Eyes Only ===
 Contributors: Archetyped
+Donate link: http://mycharitywater.org/archetyped-2012-fall
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
-Requires at least: 3.0
-Tested up to: 3.3
+Requires at least: 3.4.2
+Tested up to: 3.5
 Stable tag: trunk
 
 The ultimate tool for publishing your private thoughts in public
@@ -44,6 +45,10 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+= 1.0.4 =
+* Optimize: Admin settings layout
+* Update: WordPress 3.5 compatibility
+
 = 1.0.3 =
 * Update: Use WP Quicktags API
 * Fix: Post editor JS (Peter the Quick(tag))

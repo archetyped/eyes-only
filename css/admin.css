@@ -21,6 +21,10 @@ tr.blocked span {
 	margin: 0;
 }
 
+.inline-edit-row {
+	display: table-row;
+}
+
 .js .inline-edit-row {
 	display: none;
 }
