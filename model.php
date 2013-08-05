@@ -229,8 +229,15 @@ class EyesOnly extends EOP_Base {
 	 * Add contextual help to admin page
 	 */
 	function admin_help() {
-		$help = file_get_contents($this->util->normalize_path(dirname(__FILE__), $this->file_admin_help));
-		add_contextual_help($this->page, $help);
+		$screen = get_current_screen();
+		if ( $screen->id == $this->page ) {
+			$help = file_get_contents($this->util->normalize_path(dirname(__FILE__), $this->file_admin_help));
+			$screen->add_help_tab(array(
+				'id'		=> $this->add_prefix('options'),
+				'title'		=> __('Overview'),
+				'content'	=> $help,
+			));
+		}
 	}
 	
 	/**
@@ -355,8 +362,9 @@ class EyesOnly extends EOP_Base {
 					//Build rows
 					if ( count($autos) ) {
 						$show_status = false;
+						$rowclass = '';
 						foreach ( $autos as $id => $redaction ) { 
-							$redaction['class'] = $rowclass = 'alternate' == $rowclass ? '' : 'alternate';
+							$redaction['class'] = $rowclass = ( 'alternate' == $rowclass ) ? '' : 'alternate';
 							$redaction['id'] = $id;
 							$this->autos_row($redaction);
 						}
