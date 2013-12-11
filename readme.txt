@@ -45,6 +45,10 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+
+= 1.0.6 =
+* Update: WordPress 3.8 support
+
 = 1.0.5 =
 * Update: WordPress 3.6 support
 * Update: Contextual help
