@@ -1,6 +1,6 @@
 === Eyes Only ===
 Contributors: Archetyped
-Donate link: http://mycharitywater.org/archetyped-2012-fall
+Donate link: https://gum.co/eop-donation
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
 Requires at least: 3.8
