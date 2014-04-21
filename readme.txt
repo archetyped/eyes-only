@@ -3,8 +3,8 @@ Contributors: Archetyped
 Donate link: https://gum.co/eop-donation
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
-Requires at least: 3.8
-Tested up to: 3.8
+Requires at least: 3.9
+Tested up to: 3.9
 Stable tag: trunk
 
 The ultimate tool for publishing your private thoughts in public
@@ -46,26 +46,38 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 
 == Changelog ==
 
+= 1.0.7 =
+
+* Update: WordPress 3.9 compatibility
+* Optimize: PHP Compatibility
+
 = 1.0.6 =
+
 * Update: WordPress 3.8 support
 
 = 1.0.5 =
+
 * Update: WordPress 3.6 support
 * Update: Contextual help
 
 = 1.0.4 =
+
 * Optimize: Admin settings layout
 * Update: WordPress 3.5 compatibility
 
 = 1.0.3 =
+
 * Update: Use WP Quicktags API
 * Fix: Post editor JS (Peter the Quick(tag))
 
 = 1.0.2 =
+
 * Fix: Permission levels for admin menus
  
 = 1.0.1 =
+
 * Minor bug fix
 
 = 1.0 =
+
 * Initial release
