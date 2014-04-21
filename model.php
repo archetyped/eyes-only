@@ -77,7 +77,7 @@ class EyesOnly extends EOP_Base {
 		$this->admin_settings = $this->add_prefix($this->admin_settings);
 		$this->action_autos = $this->add_prefix($this->action_autos);
 		$this->action_autos_real = $this->add_prefix($this->action_autos_real);
-		$this->options =& new EOP_Options($this->config);
+		$this->options = new EOP_Options($this->config);
 		$this->register_hooks();
 	}
 	

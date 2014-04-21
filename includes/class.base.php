@@ -38,8 +38,8 @@ class EOP_Base {
 	 * Constructor
 	 */
 	function __construct() {
-		$this->util =& new EOP_Utilities();
-		$this->debug =& new EOP_Debug();
+		$this->util = new EOP_Utilities();
+		$this->debug = new EOP_Debug();
 	}
 	
 	/**
