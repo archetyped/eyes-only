@@ -46,6 +46,12 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 
 == Changelog ==
 
+= 1.0.8 =
+
+* Update: WordPress compatibility (4.4)
+* Fix: Editor Redact button tooltip
+* Optimize: Remove PHP legacy constructors
+
 = 1.0.7 =
 
 * Update: WordPress 3.9 compatibility
