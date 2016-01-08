@@ -55,14 +55,6 @@ class EOP_Options extends EOP_Base {
 	/*-** Init **-*/
 
 	/**
-	 * Legacy constructor
-	 * @param $config @see __construct
-	 */
-	function EOP_Options($config = null) {
-		$this->__construct($config);
-	}
-	
-	/**
 	 * Constructor
 	 * @param array $config Default configuration options
 	 */

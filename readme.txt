@@ -3,8 +3,8 @@ Contributors: Archetyped
 Donate link: https://gum.co/eop-donation
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
-Requires at least: 3.9
-Tested up to: 3.9
+Requires at least: 4.4
+Tested up to: 4.4
 Stable tag: trunk
 
 The ultimate tool for publishing your private thoughts in public
@@ -45,6 +45,12 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+
+= 1.0.8 =
+
+* Update: WordPress compatibility (4.4)
+* Fix: Editor Redact button tooltip
+* Optimize: Remove PHP legacy constructors
 
 = 1.0.7 =
 
