@@ -62,7 +62,8 @@
 
 			// Register button
 			ed.addButton(props.id, {
-				title : props.id + '.desc',
+				//title : props.id + '.desc',
+				title: ed.getLang(props.id + '.desc'),
 				cmd : props.id,
 				image : url + props.iconPath
 			});
