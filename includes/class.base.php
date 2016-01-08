@@ -28,13 +28,6 @@ class EOP_Base {
 	var $debug;
 	
 	/**
-	 * Legacy constructor
-	 */
-	function EOP_Base() {
-		$this->__construct();
-	}
-	
-	/**
 	 * Constructor
 	 */
 	function __construct() {

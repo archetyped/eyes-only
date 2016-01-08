@@ -9,11 +9,7 @@
  *
  */
 class EOP_Utilities {
-	
-	function EOP_Utilities() {
-		$this->__construct();
-	}
-	
+
 	function __construct() {
 		
 	}
@@ -667,10 +663,6 @@ class EOP_Debug {
 	var $timers = array();
 	
 	/* Constructor */
-	
-	function EOP_Debug() {
-		$this->__construct();
-	}
 	
 	function __construct() {
 		

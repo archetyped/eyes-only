@@ -68,10 +68,6 @@ class EyesOnly extends EOP_Base {
 	
 	/*-** Initialization **-*/
 
-	function EyesOnly() {
-		$this->__construct();
-	}
-
 	function __construct() {
 		parent::__construct();
 		$this->admin_settings = $this->add_prefix($this->admin_settings);
