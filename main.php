@@ -3,7 +3,7 @@
 Plugin Name: Eyes Only
 Plugin URI: http://archetyped.com/tools/eyes-only/
 Description: The ultimate tool for publishing your private thoughts in public
-Version: 0.0.0-dev
+Version: 1.0.8
 Author: Archetyped
 Author URI: http://archetyped.com
 */
