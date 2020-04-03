@@ -307,7 +307,6 @@ class EyesOnly extends EOP_Base {
 		$this->options->handle_form();
 		?>
 		<div class="wrap">
-			<?php screen_icon(); ?>
 			<h2><?php esc_html_e($title); ?></h2>
 			<h3><?php _e('Automatic Redactions'); ?> <a id="<?php echo esc_attr($this->add_prefix('add_new')); ?>" href="#" class="button thickbox" title="<?php esc_attr_e('Add Auto-Redactor'); ?>"><?php echo esc_html_x('Add new', 'file')?></a></h3>
 			<?php $this->admin_autos_fields(); ?>
