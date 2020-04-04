@@ -31,6 +31,7 @@ tr.blocked span {
 
 .row-actions .confirm {
 	display: none;
+	color: #333;
 }
 
 .hid {
