@@ -2,7 +2,7 @@
 
 /**
  * Utility methods
- * 
+ *
  * @package Eyes Only
  * @subpackage Utilities
  * @author Archetyped
@@ -11,9 +11,9 @@
 class EOP_Utilities {
 
 	function __construct() {
-		
+
 	}
-	
+
 	/**
 	 * Returns callback array to instance method
 	 * @param object $obj Instance object
@@ -26,11 +26,11 @@ class EOP_Utilities {
 		$arr = array(&$obj, $method);
 		return $arr;
 	}
-	
+
 	/* Helper Functions */
-	
+
 	/*-** WP **-*/
-	
+
 	/**
 	 * Checks if $post is a valid Post object
 	 * If $post is not valid, assigns global post object to $post (if available)
@@ -54,9 +54,9 @@ class EOP_Utilities {
 			return false;
 		return true;
 	}
-	
+
 	/*-** Request **-*/
-	
+
 	/**
 	 * Checks $_SERVER['SCRIPT_NAME'] to see if file base name matches specified file name
 	 * @param string $filename Filename to check for
@@ -65,7 +65,7 @@ class EOP_Utilities {
 	function is_file( $filename ) {
 		return ( $filename == basename( $_SERVER['SCRIPT_NAME'] ) );
 	}
-	
+
 	/**
 	 * Checks whether the current page is a management page
 	 * @return bool TRUE if current page is a management page, FALSE otherwise
@@ -79,7 +79,7 @@ class EOP_Utilities {
 				 	)
 				 );
 	}
-	
+
 	/**
 	 * Joins and normalizes the slashes in the paths passed to method
 	 * All forward/back slashes are converted to forward slashes
@@ -119,7 +119,7 @@ class EOP_Utilities {
 				//Add back leading slash if necessary
 				if ( $part[0] == $sl_f || $part[0] == $sl_b )
 					$parts[$key] = $sl_f . $parts[$key];
-				
+
 			}
 		}
 		//Join path parts together
@@ -130,7 +130,7 @@ class EOP_Utilities {
 			$parts . $sl_f;
 		return $parts;
 	}
-	
+
 	/**
 	 * Returns URL of file (assumes that it is in plugin directory)
 	 * @param string $file name of file get URL
@@ -142,7 +142,7 @@ class EOP_Utilities {
 		}
 		return $file;
 	}
-	
+
 	/**
 	 * Retrieves file extension
 	 * @param string $file file name/path
@@ -151,11 +151,11 @@ class EOP_Utilities {
 	function get_file_extension($file) {
 		$ret = '';
 		$sep = '.';
-		if ( is_string($icon) && ( $rpos = strrpos($file, $sep) ) !== false ) 
+		if ( is_string($icon) && ( $rpos = strrpos($file, $sep) ) !== false )
 			$ret = substr($file, $rpos + 1);
 		return $ret;
 	}
-	
+
 	/**
 	 * Checks if file has specified extension
 	 * @param string $file File name/path
@@ -165,7 +165,7 @@ class EOP_Utilities {
 	function has_file_extension($file, $extension) {
 		return ( $this->get_file_extension($file) == $extension ) ? true : false;
 	}
-	
+
 	/**
 	 * Retrieve base URL for plugin-specific files
 	 * @return string Base URL
@@ -177,7 +177,7 @@ class EOP_Utilities {
 		}
 		return $url_base;
 	}
-	
+
 	function get_path_base() {
 		static $path_base = '';
 		if ( '' == $path_base ) {
@@ -185,7 +185,7 @@ class EOP_Utilities {
 		}
 		return $path_base;
 	}
-		
+
 	function get_plugin_base() {
 		static $plugin_dir = '';
 		if ( '' == $plugin_dir ) {
@@ -193,17 +193,17 @@ class EOP_Utilities {
 		}
 		return $plugin_dir;
 	}
-	
+
 	function get_plugin_base_file() {
 		$file = 'main.php';
 		return $this->get_path_base() . '/' . $file;
 	}
-	
+
 	function get_plugin_base_name() {
 		$file = $this->get_plugin_base_file();
 		return plugin_basename($file);
 	}
-	
+
 	/**
 	 * Retrieve current action based on URL query variables
 	 * @param mixed $default (optional) Default action if no action exists
@@ -211,7 +211,7 @@ class EOP_Utilities {
 	 */
 	function get_action($default = null) {
 		$action = '';
-		
+
 		//Check if action is set in URL
 		if ( isset($_GET['action']) )
 			$action = $_GET['action'];
@@ -227,7 +227,7 @@ class EOP_Utilities {
 				'edit'			=> array('edit', 'edit-pages')
 			);
 			$page = basename($_SERVER['SCRIPT_NAME'], '.php');
-			
+
 			foreach ( $actions as $act => $pages ) {
 				if ( in_array($page, $pages) ) {
 					$action = $act;
@@ -239,13 +239,13 @@ class EOP_Utilities {
 			$action = $default;
 		return $action;
 	}
-	
+
 	/*-** General **-*/
-	
+
 	/**
 	 * Checks if a property exists in a class or object
 	 * (Compatibility method for PHP 4
-	 * @param mixed $class Class or object to check 
+	 * @param mixed $class Class or object to check
 	 * @param string $property Name of property to look for in $class
 	 */
 	function property_exists($class, $property) {
@@ -257,7 +257,7 @@ class EOP_Utilities {
 			return array_key_exists($property, $class);
 		}
 	}
-	
+
 	/**
 	 * Retrieve specified property from object or array
 	 * @param object|array $obj Object or array to get property from
@@ -279,10 +279,10 @@ class EOP_Utilities {
 				return $cvars[$property];
 		}
 	}
-	
+
 	/**
 	 * Insert an item into an array at the specified position
-	 * @param mixed $item Item to insert into array 
+	 * @param mixed $item Item to insert into array
 	 * @param int $pos Index position to insert item into array
 	 * @return array Modified array
 	 */
@@ -290,7 +290,7 @@ class EOP_Utilities {
 		array_splice($array, $pos, 0, $item);
 		return $array;
 	}
-	
+
 	/**
 	 * Merges 1 or more arrays together
 	 * Methodology
@@ -323,19 +323,19 @@ class EOP_Utilities {
 			//Iterate through argument items
 			foreach ($args[$x] as $key => $val) {
 					if (!isset($merged[$key]) || !is_array($merged[$key]) || !is_array($val)) {
-						$merged[$key] = $val;
+					$merged[$key] = $val;
 					} elseif (is_array($merged[$key]) && is_array($val)) {
-						$merged[$key] = $this->array_merge_recursive_distinct($merged[$key], $val);
+					$merged[$key] = $this->array_merge_recursive_distinct($merged[$key], $val);
 					}
 					//$merged[$key] = (is_array($val) && isset($merged[$key])) ? $this->array_merge_recursive_distinct($merged[$key], $val) : $val;
 			}
 		}
 		return $merged;
 	}
-	
+
 	/**
 	 * Replaces string value in one array with the value of the matching element in a another array
-	 * 
+	 *
 	 * @param string $search Text to search for in array
 	 * @param array $arr_replace Array to use for replacing values
 	 * @param array $arr_subject Array to search for specified value
@@ -353,10 +353,10 @@ class EOP_Utilities {
 			if (is_array($val) && is_array($arr_replace[$key]))
 				$arr_subject[$key] = $this->array_replace_recursive($search, $arr_replace[$key], $val);
 		}
-		
+
 		return $arr_subject;
 	}
-	
+
 	/**
 	 * Checks if item at specified path in array is set
 	 * @param array $arr Array to check for item
@@ -367,7 +367,7 @@ class EOP_Utilities {
 		$f_path = $this->get_array_path($path);
 		return eval('return isset($arr' . $f_path . ');');
 	}
-	
+
 	/**
 	 * Returns value of item at specified path in array
 	 * @param array $arr Array to get item from
@@ -381,7 +381,7 @@ class EOP_Utilities {
 		}
 		return $item;
 	}
-	
+
 	function get_array_path($attribute = '', $format = null) {
 		//Formatted value
 		$fmtd = '';
@@ -417,7 +417,7 @@ class EOP_Utilities {
 		}
 		return $fmtd;
 	}
-	
+
 	/**
 	 * Builds array of path elements based on arguments
 	 * Each item in path array represents a deeper level in structure path is for (object, array, filesystem, etc.)
@@ -427,12 +427,12 @@ class EOP_Utilities {
 	function build_path() {
 		$path = array();
 		$args = func_get_args();
-		
+
 		//Iterate through parameters and build path
 		foreach ( $args as $arg ) {
 			if ( empty($arg) )
 				continue;
-				
+
 			if (is_array($arg)) {
 				//Recurse through array items to pull out any more arrays
 				foreach ($arg as $key => $val) {
@@ -443,10 +443,10 @@ class EOP_Utilities {
 				$path[] = $arg;
 			}
 		}
-		
+
 		return $path;
 	}
-	
+
 	/**
 	 * Builds attribute string for HTML element
 	 * @param array $attr Attributes
@@ -466,7 +466,7 @@ class EOP_Utilities {
 		}
 		return $ret;
 	}
-	
+
 	/**
 	 * Generate external stylesheet element
 	 * @param $url Stylesheet URL
@@ -476,7 +476,7 @@ class EOP_Utilities {
 		$attributes = array('href' => $url, 'type' => 'text/css', 'rel' => 'stylesheet');
 		return $this->build_html_element(array('tag' => 'link', 'wrap' => false, 'attributes' => $attributes));
 	}
-	
+
 	/**
 	 * Generate external script element
 	 * @param $url Script URL
@@ -486,7 +486,7 @@ class EOP_Utilities {
 		$attributes = array('src' => $url, 'type' => 'text/javascript');
 		return $this->build_html_element(array('tag' => 'script', 'attributes' => $attributes));
 	}
-	
+
 	/**
 	 * Generate HTML element based on values
 	 * @param $args Element arguments
@@ -504,32 +504,32 @@ class EOP_Utilities {
 		$el_close = '/';
 		extract(wp_parse_args($args, $defaults), EXTR_SKIP);
 		$content = trim($content);
-		
+
 		if ( !$wrap && strlen($content) > 0 )
 			$wrap = true;
-		
+
 		$attributes = $this->build_attribute_string($attributes);
 		if ( strlen($attributes) > 0 )
 			$attributes = ' ' . $attributes;
-			
+
 		$ret = $el_start . $tag . $attributes;
-		
+
 		if ( $wrap )
 			$ret .= $el_end . $content . $el_start . $el_close . $tag;
 		else
 			$ret .= ' ' . $el_close;
 
 		$ret .= $el_end;
-		return $ret;	
+		return $ret;
 	}
-	
+
 	/*-** Admin **-*/
-	
+
 	/**
 	 * Add submenu page in the admin menu
 	 * Adds ability to set the position of the page in the menu
 	 * @see add_submenu_page (Wraps functionality)
-	 * 
+	 *
 	 * @param $parent
 	 * @param $page_title
 	 * @param $menu_title
@@ -537,7 +537,7 @@ class EOP_Utilities {
 	 * @param $file
 	 * @param $function
 	 * @param int $pos Index position of menu page
-	 * 
+	 *
 	 * @global array $submenu Admin page submenus
 	 */
 	function add_submenu_page($parent, $page_title, $menu_title, $capability, $file, $function = '', $pos = false) {
@@ -566,27 +566,27 @@ class EOP_Utilities {
 				}
 			}
 		}
-		
+
 		return $hookname;
 	}
-	
+
 	/**
 	 * Remove admin submenu
 	 * @param string $parent Submenu parent file
 	 * @param string $file Submenu file name
 	 * @return int|null Index of removed submenu (NULL if submenu not found)
-	 * 
+	 *
 	 * @global array $submenu
 	 * @global array $_registered_pages
 	 */
 	function remove_submenu_page($parent, $file) {
 		global $submenu, $_registered_pages;
 		$ret = null;
-		
+
 		$parent = $this->get_submenu_parent_file($parent);
 		$file = plugin_basename($file);
 		$file_index = 2;
-		
+
 		//Find submenu
 		if ( isset($submenu[$parent]) ) {
 			$subs =& $submenu[$parent];
@@ -604,14 +604,14 @@ class EOP_Utilities {
 				}
 			}
 		}
-		
+
 		return $ret;
 	}
-	
+
 	/**
 	 * Replace a submenu page
 	 * Adds a submenu page in the place of an existing submenu page that has the same $file value
-	 * 
+	 *
 	 * @param $parent
 	 * @param $page_title
 	 * @param $menu_title
@@ -619,7 +619,7 @@ class EOP_Utilities {
 	 * @param $file
 	 * @param $function
 	 * @return string Hookname
-	 * 
+	 *
 	 * @global array $submenu
 	 */
 	function replace_submenu_page($parent, $page_title, $menu_title, $access_level, $file, $function = '') {
@@ -630,12 +630,12 @@ class EOP_Utilities {
 		$hookname = $this->add_submenu_page($parent, $page_title, $menu_title, $access_level, $file, $function, $pos);
 		return $hookname;
 	}
-	
+
 	/**
 	 * Retrieves parent file for submenu
 	 * @param string $parent Parent file
 	 * @return string Formatted parent file name
-	 * 
+	 *
 	 * @global array $_wp_real_parent_file;
 	 */
 	function get_submenu_parent_file($parent) {
@@ -656,18 +656,18 @@ class EOP_Debug {
 	 * @var array Associative array of debug messages
 	 */
 	var $msgs = array();
-	
+
 	/**
 	 * @var array Holds various timer objects
 	 */
 	var $timers = array();
-	
+
 	/* Constructor */
-	
+
 	function __construct() {
-		
+
 	}
-	
+
 	/**
 	 * Adds debug data to object
 	 * @return void
@@ -677,7 +677,7 @@ class EOP_Debug {
 	function add_message($title, $message) {
 		$this->msgs[$title] = $message;
 	}
-	
+
 	/**
 	 * Returns debug message array
 	 * @return array Debug message array
@@ -685,13 +685,13 @@ class EOP_Debug {
 	function get_messages() {
 		return $this->msgs;
 	}
-	
+
 	function show_messages() {
 		echo '<pre>';
 		var_dump($this->get_messages());
 		echo '</pre>';
 	}
-	
+
 	function print_message($msg) {
 		foreach (func_get_args() as $msg) {
 			echo '<pre>';
@@ -703,19 +703,19 @@ class EOP_Debug {
 			echo '</pre>';
 		}
 	}
-	
+
 	function microtime_float() {
 		list($usec, $sec) = explode(' ', microtime());
 		return (float)$usec + (float)$sec;
 	}
-	
+
 	function timer_start($name = 'default', $time = null) {
 		if (empty($time)) $time = $this->microtime_float();
 		$this->timers[$name] = new stdClass();
 		$this->timers[$name]->start = $time;
 		$this->timers[$name]->end = $time;
 	}
-	
+
 	function timer_stop($name = 'default') {
 		$time = $this->microtime_float();
 		if (!isset($this->timers[$name])
@@ -726,9 +726,9 @@ class EOP_Debug {
 			$this->timers[$name]->end = $time;
 		}
 	}
-	
+
 	function timer_show($name = 'default', $format = 'Elapsed time: %s') {
-		if (!isset($this->timers[$name]) 
+		if (!isset($this->timers[$name])
 			|| !is_object($this->timers[$name])
 			|| $this->timers[$name]->end < $this->timers[$name]->start
 		) {
@@ -738,27 +738,27 @@ class EOP_Debug {
 		$res = (float)$this->timers[$name]->end - (float)$this->timers[$name]->start;
 		$this->print_message(sprintf($format, $res));
 	}
-	
+
 	/**
 	 * Retrieve current function name
 	 * @param string|array $properties (optional) Properties to retrieve for current function
 	 * @return string|array Current function properties. Default: function name.  Will return array if multiple properties are requested
-	 * @see CNR_Debug::backtrace 
+	 * @see CNR_Debug::backtrace
 	 */
 	function get_current($properties = 'function') {
 		return $this->backtrace($properties, 1, 2);
 	}
-	
+
 	/**
 	 * Retrieves calling function name
 	 * @param string|array $properties (optional) Properties to retrieve for caller
 	 * @return string|array Calling function properties. Default: function name.  Will return array if multiple properties are requested
-	 * @see CNR_Debug::backtrace 
+	 * @see CNR_Debug::backtrace
 	 */
 	function get_caller($properties = 'function') {
 		return $this->backtrace($properties, 1, 3);
 	}
-	
+
 	/**
 	 * Return customized backtrace
 	 * @param string|array $properties (optional) Properties to retrieve for each level (Default: all properties) Can be comma-delimited string or array
@@ -778,13 +778,13 @@ class EOP_Debug {
 			if ( empty($levels) || $levels > $debug_levels ) {
 				$levels = $debug_levels;
 			}
-			
+
 			//Setup properties
 			if ( is_string($properties) )
 				$properties = explode(',', $properties);
 			if ( is_array($properties) )
 				$properties = array_map('trim', $properties);
-			
+
 			//Build output
 			for ( $x = 0; $x < $levels; $x++ ) {
 				$level_out = array();

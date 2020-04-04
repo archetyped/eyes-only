@@ -15,43 +15,43 @@ class EOP_Options extends EOP_Base {
 	 * @var string
 	 */
 	var $name = 'options';
-	
+
 	/**
 	 * Key used to store configuration options
 	 * @var string
 	 */
 	var $key_config = 'config';
-	
+
 	/**
 	 * Key for option value property
 	 * @var string
 	 */
 	var $config_value = 'value';
-	
+
 	/**
 	 * Key for option default value property
 	 * @var string
 	 */
 	var $config_default = 'default';
-	
+
 	/**
 	 * Key for option label property
 	 * @var string
 	 */
 	var $config_label = 'label';
-	
+
 	/**
 	 * Key for option description property
 	 * @var string
 	 */
 	var $config_desc = 'desc';
-	
+
 	/**
 	 * Default config data (Set at initialization)
 	 * @var array
 	 */
 	var $config_data_default = array();
-	
+
 	/*-** Init **-*/
 
 	/**
@@ -61,17 +61,17 @@ class EOP_Options extends EOP_Base {
 	function __construct($config = null) {
 		parent::__construct();
 		$this->name = $this->add_prefix($this->name);
-//		$this->set_config(array());
+		//      $this->set_config(array());
 		//Set default config data
 		if ( is_array($config) ) {
 			$this->config_data_default = $config;
 		}
 	}
-	
+
 	/*-** Methods **-*/
-	
+
 	/* Getters/Setters */
-	
+
 	/**
 	 * Retrieve configuration option
 	 * @param string Option name
@@ -87,7 +87,7 @@ class EOP_Options extends EOP_Base {
 		}
 		return $default;
 	}
-	
+
 	/**
 	 * Retrieve default option value
 	 * @param $key Option name
@@ -99,7 +99,7 @@ class EOP_Options extends EOP_Base {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Set configuration option data
 	 * @param $key Option to set data for
@@ -108,9 +108,9 @@ class EOP_Options extends EOP_Base {
 	function set($key, $data = null, $label = null, $desc = null) {
 		$prop = ( $this->exists($key) ) ? $this->config_value : $this->config_default;
 		$data = array($prop => $data, $this->config_label => $label, $this->config_desc => $desc);
-		$this->set_config_item($key, $data); 
+		$this->set_config_item($key, $data);
 	}
-	
+
 	/**
 	 * Checks if option has a saved value
 	 * @param string $key Option name
@@ -119,7 +119,7 @@ class EOP_Options extends EOP_Base {
 	function has_value($key) {
 		return $this->exists($key, $this->config_value);
 	}
-	
+
 	/**
 	 * Check if config option exists
 	 * @param $key Option name
@@ -134,9 +134,9 @@ class EOP_Options extends EOP_Base {
 			$ret = false;
 		return $ret;
 	}
-	
+
 	/* Configuration Options */
-	
+
 	/**
 	 * Create configuration option item
 	 * Associative array with keys for option properties
@@ -151,7 +151,7 @@ class EOP_Options extends EOP_Base {
 		$args = wp_parse_args($args, $default_args);
 		return $args;
 	}
-	
+
 	/**
 	 * Retrieve option item
 	 * @see make_config_item
@@ -161,23 +161,23 @@ class EOP_Options extends EOP_Base {
 	function get_config_item($key, $prop = false) {
 		$config = $this->get_config();
 		$ret = null;
-		
+
 		if ( is_string($key) && ( isset($config[$key]) || isset($this->config_data_default[$key]) ) ) {
 			$val = ( isset($config[$key]) ) ? $config[$key] : array();
 			$def = ( isset($this->config_data_default[$key]) ) ? $this->config_data_default[$key] : array();
 			$ret = wp_parse_args($val, $def);
 		}
-		
+
 		$ret = $this->make_config_item($ret);
-		
+
 		//Retrieve option property (if specified and available)
 		if ( !empty($prop) && isset($ret[$prop]) ) {
 			$ret = $ret[$prop];
 		}
-		
+
 		return $ret;
 	}
-	
+
 	/**
 	 * Save option item to DB
 	 * @param string $key Option name
@@ -195,9 +195,9 @@ class EOP_Options extends EOP_Base {
 		$config[$key] = $args;
 		$this->set_config($config, false);
 	}
-	
+
 	/**
-	 * Remove default properties from option item 
+	 * Remove default properties from option item
 	 * Useful for stripping default data before saving option data
 	 * @param array $item Option data
 	 * @return array Associative array of user-defined option data
@@ -210,7 +210,7 @@ class EOP_Options extends EOP_Base {
 		}
 		return $ret;
 	}
-	
+
 	/**
 	 * Retrieve configuration options
 	 * @return array Associative array of configuration options
@@ -218,7 +218,7 @@ class EOP_Options extends EOP_Base {
 	function get_config() {
 			return $this->util->array_merge_recursive_distinct($this->config_data_default, $this->get_config_saved());
 	}
-	
+
 	/**
 	 * Retrieve saved option data
 	 * Values only
@@ -227,10 +227,10 @@ class EOP_Options extends EOP_Base {
 	function get_config_saved() {
 		return $this->get_data($this->key_config, array());
 	}
-	
+
 	/**
 	 * Save configuration options to DB
-	 * Default mode is direct overwrite 
+	 * Default mode is direct overwrite
 	 * @param array $config Configuration options
 	 * @param bool $clean (optional) Whether to strip all options of default properties
 	 */
@@ -241,16 +241,16 @@ class EOP_Options extends EOP_Base {
 		//Strip default properties from array items
 		if ( !empty($config) && $clean ) {
 			$config = array_map($this->m('remove_config_default'), $config);
-		} 
+		}
 		//Skip if data is unchanged
 		if ( $config == $this->get_config_saved() )
 			return false;
 		//Save to DB
 		$this->set_data($this->key_config, $config);
 	}
-	
+
 	/* Low-level Data Handling */
-	
+
 	/**
 	 * Retrieve arbitrary data saved to options instance
 	 * @param string $key Data key
@@ -268,7 +268,7 @@ class EOP_Options extends EOP_Base {
 		}
 		return $opts;
 	}
-	
+
 	/**
 	 * Set arbitrary data in options instance
 	 * @param string $key Data key
@@ -286,9 +286,9 @@ class EOP_Options extends EOP_Base {
 		//Save to db
 		update_option($this->name, $opts);
 	}
-	
+
 	/* Output */
-	
+
 	/**
 	 * Output form for configuration options
 	 */
@@ -301,7 +301,7 @@ class EOP_Options extends EOP_Base {
 			$id = $this->get_form_id($key);
 			$opts[] = '<tr valign="top"><th scope="row"><label for="' . $id . '">' . $data[$this->config_label] . '</label></th><td>' . $this->get_form_element($key, $data) . '</td></tr>';
 		}
-		//Build form 
+		//Build form
 		if ( !empty($opts) ) {
 			array_unshift($opts, '<form method="post" action="' . esc_attr($_SERVER['REQUEST_URI']) . '">', '<table class="form-table">');
 			$opts[] = '</table>';
@@ -310,7 +310,7 @@ class EOP_Options extends EOP_Base {
 		}
 		echo implode('', $opts);
 	}
-	
+
 	/**
 	 * Handle form submission
 	 */
@@ -338,7 +338,7 @@ class EOP_Options extends EOP_Base {
 			$this->set_config($config);
 		}
 	}
-	
+
 	/**
 	 * Check whether config option is intended to be manipulated via a form
 	 * @param $key Option name
@@ -348,9 +348,9 @@ class EOP_Options extends EOP_Base {
 		$data = $this->get_config_item($key);
 		return ( !empty($data[$this->config_label]) );
 	}
-	
+
 	/**
-	 * Generate valid form ID for option 
+	 * Generate valid form ID for option
 	 * @param string $key Option name
 	 * @return string form ID for option
 	 */
@@ -358,11 +358,11 @@ class EOP_Options extends EOP_Base {
 		static $lkey = '';
 		static $id = '';
 		if ( $key != $lkey ) {
-			$id = $this->add_prefix(array($this->key_config, $key));	
+			$id = $this->add_prefix(array($this->key_config, $key));
 		}
 		return $id;
 	}
-	
+
 	/**
 	 * Generate valid form name for option
 	 * ID will be part of 'config' Post data array when submitted
@@ -372,7 +372,7 @@ class EOP_Options extends EOP_Base {
 	function get_form_name($key) {
 		return $this->add_prefix($this->key_config) . '[' . $key . ']';
 	}
-	
+
 	/**
 	 * Field builder for config options
 	 * @param string $key Option name
@@ -385,7 +385,7 @@ class EOP_Options extends EOP_Base {
 			$data = $this->get_config_item($key);
 		$attr = array('value' => $this->get($key), 'name' => $this->get_form_name($key));
 		$attr['id'] = $this->get_form_id($key);
-		
+
 		//Determine field type
 		$type_default = 'text';
 		if ( is_bool($attr['value']) ) {
@@ -393,7 +393,7 @@ class EOP_Options extends EOP_Base {
 		} else {
 			$attr['type'] =  $type_default;
 		}
-		
+
 		//Adjust type and value formatting based on type
 		switch ( $attr['type'] ) {
 			case 'checkbox' :

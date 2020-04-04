@@ -8,25 +8,25 @@ require_once 'class.utilities.php';
  *
  */
 class EOP_Base {
-	
+
 	/**
 	 * Prefix for Cornerstone-related data (attributes, DB tables, etc.)
 	 * @var string
 	 */
 	var $prefix = 'eop';
-	
+
 	/**
 	 * Utilities instance
 	 * @var EOP_Utilities
 	 */
 	var $util;
-	
+
 	/**
 	 * Debug instance
 	 * @var EOP_Debug
 	 */
 	var $debug;
-	
+
 	/**
 	 * Constructor
 	 */
@@ -34,7 +34,7 @@ class EOP_Base {
 		$this->util = new EOP_Utilities();
 		$this->debug = new EOP_Debug();
 	}
-	
+
 	/**
 	 * Default initialization method
 	 * To be overriden by child classes
@@ -46,7 +46,7 @@ class EOP_Base {
 				call_user_method($func, $this);
 		}
 	}
-	
+
 	function register_hooks() {
 		//Activation
 		$func_activate = 'activate';
@@ -57,7 +57,7 @@ class EOP_Base {
 		if ( method_exists($this, $func_deactivate) )
 			register_deactivation_hook($this->util->get_plugin_base_file(), $this->m($func_deactivate));
 	}
-	
+
 	/**
 	 * Returns callback to instance method
 	 * @param string $method Method name
@@ -66,7 +66,7 @@ class EOP_Base {
 	function &m($method) {
 		return $this->util->m($this, $method);
 	}
-	
+
 	/**
 	 * Retrieves post metadata for internal methods
 	 * Metadata set internally is wrapped in an array so it is unwrapped before returned the retrieved value
@@ -82,7 +82,7 @@ class EOP_Base {
 			$meta_value = $meta_value[0];
 		return $meta_value;
 	}
-	
+
 	/**
 	 * Wraps metadata in array for storage in database
 	 * @param mixed $meta_value Value to be set as metadata
@@ -91,7 +91,7 @@ class EOP_Base {
 	function post_meta_prepare_value($meta_value) {
 		return array($meta_value);
 	}
-	
+
 	/**
 	 * Adds Metadata for a post to database
 	 * For internal methods
@@ -106,7 +106,7 @@ class EOP_Base {
 		$meta_value = $this->post_meta_value_prepare($meta_value);
 		return add_post_meta($post_id, $meta_key, $meta_value, $unique);
 	}
-	
+
 	/**
 	 * Updates post metadata for internal data/methods
 	 * @see update_post_meta()
@@ -120,10 +120,10 @@ class EOP_Base {
 		$meta_value = $this->post_meta_prepare_value($meta_value);
 		return update_post_meta($post_id, $meta_key, $meta_value, $prev_value);
 	}
-	
+
 	/**
 	 * Builds postmeta key for custom data set by plugin
-	 * @param string $key Base key name 
+	 * @param string $key Base key name
 	 * @return string Formatted postmeta key
 	 */
 	function post_meta_get_key($key) {
@@ -135,10 +135,10 @@ class EOP_Base {
 				return $sep . implode($sep, $key);
 			}
 		}
-		
+
 		return $key;
 	}
-	
+
 	/**
 	 * Retrieve class prefix (with separator if set)
 	 * @param bool|string $sep Separator to append to class prefix (Default: no separator)
@@ -149,7 +149,7 @@ class EOP_Base {
 		$prefix = ( !empty($this->prefix) ) ? $this->prefix . $sep : '';
 		return $prefix;
 	}
-	
+
 	/**
 	 * Prepend plugin prefix to some text
 	 * @param string $text Text to add to prefix
@@ -161,7 +161,7 @@ class EOP_Base {
 			$text = implode($sep, $text);
 		return $this->get_prefix($sep) . $text;
 	}
-	
+
 	/**
 	 * Creates a meta key for storing post meta data
 	 * Prefixes standard prefixed text with underscore to hide meta data on post edit forms
@@ -171,7 +171,7 @@ class EOP_Base {
 	function make_meta_key($text = '') {
 		return '_' . $this->add_prefix($text);
 	}
-	
+
 	/**
 	 * Returns Database prefix for Cornerstone-related DB Tables
 	 * @return string Database prefix
