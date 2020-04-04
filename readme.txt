@@ -46,6 +46,11 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 
 == Changelog ==
 
+= 1.0.9 =
+
+* Optimize: WordPress 5.4 compatibility
+* Optimize: Code cleanup
+
 = 1.0.8 =
 
 * Update: WordPress compatibility (4.4)
