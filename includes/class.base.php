@@ -28,18 +28,6 @@ class EOP_Base {
 		$this->util = new EOP_Utilities();
 	}
 
-	/**
-	 * Default initialization method
-	 * To be overriden by child classes
-	 */
-	function init() {
-		$func = 'register_hooks';
-		if ( isset($this) ) {
-			if ( method_exists($this, $func) )
-				call_user_method($func, $this);
-		}
-	}
-
 	function register_hooks() {
 		//Activation
 		$func_activate = 'activate';
