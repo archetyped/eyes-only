@@ -22,17 +22,10 @@ class EOP_Base {
 	var $util;
 
 	/**
-	 * Debug instance
-	 * @var EOP_Debug
-	 */
-	var $debug;
-
-	/**
 	 * Constructor
 	 */
 	function __construct() {
 		$this->util = new EOP_Utilities();
-		$this->debug = new EOP_Debug();
 	}
 
 	/**
