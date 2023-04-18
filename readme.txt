@@ -4,7 +4,7 @@ Donate link: https://gum.co/eop-donation
 Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
 Requires at least: 5.4
-Tested up to: 6.1
+Tested up to: 6.2
 Stable tag: trunk
 
 The ultimate tool for publishing your private thoughts in public
