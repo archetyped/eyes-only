@@ -5,7 +5,7 @@ Tags: privacy, private, redaction, hide, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
 Requires at least: 5.4
 Tested up to: 6.5
-Stable tag: trunk
+Stable tag: 1.0.9
 
 The ultimate tool for publishing your private thoughts in public
 
