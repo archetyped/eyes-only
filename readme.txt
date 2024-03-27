@@ -1,7 +1,7 @@
 === Eyes Only ===
 Contributors: Archetyped
 Donate link: https://gum.co/eop-donation
-Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
+Tags: privacy, private, redaction, hide, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
 Requires at least: 5.4
 Tested up to: 6.5
