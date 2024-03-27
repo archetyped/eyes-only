@@ -1,4 +1,5 @@
 .vscode
 .sass-cache
+.DS_Store
 node_modules/
 vendor/
