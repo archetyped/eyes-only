@@ -217,7 +217,7 @@ class EyesOnly extends EOP_Base {
 	 */
 	function admin_menu() {
 		$title = __('Eyes Only');
-		$this->page = $p = $this->util->add_submenu_page('options-general.php', $title, $title, 'manage_options', $this->admin_settings, $this->m('admin_page'), 6);
+		$this->admin_page = $p = $this->util->add_submenu_page('options-general.php', $title, $title, 'manage_options', $this->admin_settings, $this->m('admin_page'), 6);
 		add_action("admin_head-$p", $this->m('admin_help'));
 	}
 
@@ -226,7 +226,7 @@ class EyesOnly extends EOP_Base {
 	 */
 	function admin_help() {
 		$screen = get_current_screen();
-		if ( $screen->id == $this->page ) {
+		if ( $screen->id == $this->admin_page ) {
 			$help = file_get_contents($this->util->normalize_path(dirname(__FILE__), $this->file_admin_help));
 			$screen->add_help_tab(array(
 				'id'		=> $this->add_prefix('options'),
