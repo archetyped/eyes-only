@@ -1,11 +1,12 @@
 === Eyes Only ===
 Contributors: Archetyped
 Donate link: https://gum.co/eop-donation
-Tags: privacy, private, security, redact, redaction, hide, hidden, anonymous
+Tags: privacy, private, redaction, hide, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
+License: GPLv2
 Requires at least: 5.4
-Tested up to: 5.8
-Stable tag: trunk
+Tested up to: 7.0
+Stable tag: 1.0.10
 
 The ultimate tool for publishing your private thoughts in public
 
@@ -45,6 +46,11 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 3. Redacted Post Content
 
 == Changelog ==
+
+= 1.0.10 =
+
+* Update: Confirm WordPress 7.0 compatibility
+* Fix: Variable name typo
 
 = 1.0.9 =
 
