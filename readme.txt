@@ -47,6 +47,11 @@ Post your questions/comments on the [plugin's home page](http://archetyped.com/t
 
 == Changelog ==
 
+= 1.0.10 =
+
+* Update: Confirm WordPress 7.0 compatibility
+* Fix: Variable name typo
+
 = 1.0.9 =
 
 * Optimize: WordPress 5.4 compatibility
