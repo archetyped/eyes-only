@@ -5,7 +5,7 @@ Tags: privacy, private, redaction, hide, anonymous
 Plugin Link: http://archetyped.com/tools/eyes-only/
 License: GPLv2
 Requires at least: 5.4
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 1.0.10
 
 The ultimate tool for publishing your private thoughts in public
